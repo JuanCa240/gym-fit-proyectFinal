@@ -8,4 +8,13 @@ import { RouterLink } from '@angular/router';
   templateUrl: './navbar.html',
   styleUrl: './navbar.css'
 })
-export class Navbar {}
+export class Navbar {
+    // Indica si el menú móvil está abierto o cerrado.
+    menuOpen: boolean = false;
+
+    // Alterna el estado del menú.
+    toggleMenu(): void {
+        this.menuOpen = !this.menuOpen;
+    }
+
+}
