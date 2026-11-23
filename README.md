@@ -52,8 +52,23 @@ For end-to-end (e2e) testing, run:
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-## Additional Resources
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## ARQUITECTURA
+
+Feature-Based Architecture
+
+## features -> Funcionalidades de GYM-FIT
+home/: Página principal, presentación del gimnasio y acceso a los planes
+plans/: Mostrar planes Básico, Pro y VIP.
+login/: Inicio de sesión de usuarios.
+register/: Registro de nuevos usuarios.
+routines/: Banco de ejercicios y personalización de rutinas mediante drag and drop.
+locations/: Geolocalización para mostrar información útil sobre sedes del gimnasio.
+not-found/: Página de error para rutas inexistentes (404).
+
+shared/: Elementos reutilizables
+public/: logo e imagenes
+core/: lógica en general
+
+
