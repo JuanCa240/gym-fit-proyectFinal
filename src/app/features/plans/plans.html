@@ -1,0 +1,54 @@
+
+<!-- Sección de membresías -->
+<section class="plans" id="planes">
+
+  <h2>Nuestros planes</h2>
+
+  <p class="plans-description">
+    Elige la membresía que mejor se adapte a tus objetivos.
+  </p>
+
+  <div class="plans-container">
+
+    <!-- recorre nuestro arreglo plans y genera un elemento por cada objeto -->
+     
+    @for (plan of plans; track plan.id) { 
+
+      <article
+      class="plan-card"
+      [class.featured]="plan.featured"
+      [class.selected]="selectedPlanId === plan.id">
+
+        @if (plan.featured) {
+          <span class="plan-badge">Más popular</span>
+        }
+
+        <h3>{{ plan.name }}</h3>
+
+        <p class="plan-price">
+          {{ plan.price.toLocaleString('es-CO') }}
+          <span>COP / mes</span>
+        </p>
+
+        <ul>
+          @for (benefit of plan.benefits; track benefit) {
+            <li>{{ benefit }}</li>
+          }
+        </ul>
+
+        <button
+          type="button"
+          class="btn-plan"
+          (click)="selectPlan(plan.id)"
+          [attr.aria-pressed]="selectedPlanId === plan.id"
+        >
+          {{ selectedPlanId === plan.id ? 'Seleccionado' : 'Seleccionar' }}
+
+        </button>
+
+      </article>
+    }
+
+  </div>
+
+</section>

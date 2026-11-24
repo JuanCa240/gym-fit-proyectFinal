@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { Plans } from '../plans/plans';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [Plans],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
