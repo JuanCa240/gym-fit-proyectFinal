@@ -1,7 +1,7 @@
 
 /* Sección de membresías */
 .plans {
-  padding: 80px 24px;
+  padding: 80px 24px 160px;
   text-align: center;
   background-color: var(--bg);
 }
@@ -199,7 +199,7 @@
 /* Diseño para celulares */
 @media (max-width: 600px) {
   .plans {
-    padding: 64px 20px;
+    padding: 64px 20px 100px;
   }
 
   .plans-container {
