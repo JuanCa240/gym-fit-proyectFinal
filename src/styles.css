@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --bg: #121212;
+  --surface: #1e1e1e;
+  --surface-2: #252525;
+  --border: #333333;
+  --yellow: #ffd700;
+  --yellow-hover: #ffe44d;
+  --text: #ffffff;
+  --muted: #b3b3b3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}

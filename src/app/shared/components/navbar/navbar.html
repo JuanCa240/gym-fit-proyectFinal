@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TU-GYM</title>
+</head>
+
+<body>
+    <header class="header">
+    <!-- Logo del gimnasio -->
+    <a class="logo" routerLink="/" >TU-GYM </a>
+
+        <!-- Botón del menú para dispositivos móviles -->
+    <button
+        class="menu-toggle"
+        type="button"
+        (click)="toggleMenu()"
+        [attr.aria-label]="menuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'"
+        [attr.aria-expanded]="menuOpen"
+        aria-controls="main-navigation"
+    >
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+
+    <!-- Menú de navegación -->
+    <nav id="main-navigation" class="nav-links" [class.active]="menuOpen" aria-label="Navegacion Principal">
+        <a href="#planes">Planes</a>
+        <a href="#terminos">Términos</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <!-- Acceso al login -->
+    <a class="btn-login" [class.active]= "menuOpen" href="/login">
+        Iniciar sesión
+    </a>
+    </header>
+</body>
+</html>
