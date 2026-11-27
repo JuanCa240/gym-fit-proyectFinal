@@ -21,6 +21,12 @@
   margin: 0 auto 18px;
 }
 
+/* Palabra "Gym" resaltada en amarillo */
+.hero h1 .highlight {
+  color: var(--yellow);
+  text-shadow: 0 0 24px rgba(255, 215, 0, 0.35);
+}
+
 /* Descripción */
 .hero p {
   color: var(--muted);
@@ -49,9 +55,21 @@
   font-size: 1rem;
   font-weight: 700;
 
-  transition: background-color 0.2s ease;
+  /* Transición suave para el color, el tamaño y el resplandor */
+  transition:
+    background-color 0.2s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
+/* Al pasar el cursor: se expande y brilla */
 .btn-cta:hover {
   background-color: var(--yellow-hover);
+  transform: scale(1.08);
+  box-shadow: 0 0 28px rgba(255, 215, 0, 0.45);
+}
+
+/* Al hacer clic: se "hunde" un poquito */
+.btn-cta:active {
+  transform: scale(1.02);
 }

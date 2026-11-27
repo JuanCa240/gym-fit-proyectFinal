@@ -1,5 +1,8 @@
+/* ============================================
+   Navbar de TuGym
+   ============================================ */
 
-/* Contenedor principal del Navbar */
+/* Contenedor principal */
 .header {
   display: flex;
   justify-content: space-between;
@@ -16,28 +19,51 @@
   z-index: 10;
 }
 
-/* Logo provisional */
+/* ---------- LOGO ---------- */
 .logo {
-  min-width: 90px;
-  height: 38px;
-  padding: 0 10px;
+  position: relative;
+  display: block;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 160px;
+  height: 44px;
 
-  background-color: #333333;
-  border-radius: 4px;
-
-  color: var(--yellow);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-decoration: none;
-
+  flex-shrink: 0;
+  z-index: 11;
 }
 
-/* Enlaces de navegación */
+.logo img {
+  position: absolute;
+  top: -12px;
+  left: -20px;
+
+  width: 160px;
+  height: 160px;          /* cuadrado perfecto = círculo perfecto */
+  aspect-ratio: 1 / 1;
+
+  display: block;
+  border-radius: 50%;     /* 50% (no 70%) para que sea un círculo real */
+  object-fit: cover;
+
+  /* Aro oscuro + resplandor amarillo + sombra de profundidad */
+  border: 3px solid #0d0d0d;
+  background-color: #0d0d0d;
+  box-shadow:
+    0 0 0 2px rgba(255, 215, 0, 0.35),
+    0 0 24px rgba(255, 215, 0, 0.35),
+    0 10px 28px rgba(0, 0, 0, 0.55);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.logo:hover img {
+  transform: scale(1.04);
+  box-shadow:
+    0 0 0 2px rgba(255, 215, 0, 0.6),
+    0 0 32px rgba(255, 215, 0, 0.5),
+    0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- ENLACES ---------- */
 .nav-links {
   display: flex;
   align-items: center;
@@ -52,12 +78,11 @@
   transition: color 0.2s ease;
 }
 
-/* Efecto al pasar el cursor */
 .nav-links a:hover {
   color: var(--yellow);
 }
 
-/* Botón de iniciar sesión */
+/* ---------- BOTÓN LOGIN ---------- */
 .btn-login {
   display: inline-flex;
   justify-content: center;
@@ -84,8 +109,7 @@
   color: var(--bg);
 }
 
-
-/* Botón hamburguesa: oculto en escritorio */
+/* ---------- BOTÓN HAMBURGUESA (oculto en escritorio) ---------- */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -103,7 +127,6 @@
   cursor: pointer;
 }
 
-/* Las tres líneas del botón */
 .menu-toggle span {
   display: block;
   width: 100%;
@@ -113,11 +136,30 @@
   border-radius: 2px;
 }
 
-/* Estilos para pantallas pequeñas */
+/* ============================================
+   RESPONSIVE (móvil)
+   ============================================ */
 @media (max-width: 768px) {
   .header {
     padding: 12px 20px;
     flex-wrap: wrap;
+  }
+
+  /* Logo más pequeño, sobresale solo un poco */
+  .logo {
+    width: 72px;
+    height: 44px;
+  }
+
+  .logo img {
+    top: -6px;
+    width: 72px;
+    height: 72px;
+    border-width: 2px;
+    box-shadow:
+      0 0 0 1px rgba(255, 215, 0, 0.35),
+      0 0 14px rgba(255, 215, 0, 0.35),
+      0 6px 16px rgba(0, 0, 0, 0.55);
   }
 
   .menu-toggle {
@@ -130,18 +172,6 @@
     display: none;
   }
 
-/* Botón de login dentro del menú móvil */
-   .btn-login.active {
-     display: inline-flex;
-     width: 100%;
-     order: 4;
-     margin-top: 8px;
-    }
-}
-
-
-@media (max-width: 768px) {
-
   /* Menú desplegado */
   .nav-links.active {
     display: flex;
@@ -153,18 +183,27 @@
     order: 3;
   }
 
-  /* Enlaces dentro del menú móvil */
   .nav-links.active a {
     padding: 14px 8px;
     border-bottom: 1px solid var(--border);
   }
 
+  /* Botón de login dentro del menú móvil */
   .btn-login.active {
-     display: inline-flex;
-     width: 100%;
-     order: 4;
-     margin-top: 8px;
-   }
-
+    display: inline-flex;
+    width: 100%;
+    order: 4;
+    margin-top: 8px;
+  }
 }
 
+/* Accesibilidad: sin animaciones si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce) {
+  .logo img {
+    transition: none;
+  }
+
+  .logo:hover img {
+    transform: none;
+  }
+}
