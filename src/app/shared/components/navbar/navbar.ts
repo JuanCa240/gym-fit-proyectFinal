@@ -17,4 +17,9 @@ export class Navbar {
         this.menuOpen = !this.menuOpen;
     }
 
+    // Cierra el menú al seleccionar una opción.
+    closeMenu(): void {
+        this.menuOpen = false;
+    }
+
 }
