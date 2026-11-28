@@ -1,0 +1,275 @@
+/* Contenedor principal del Login */
+.login-container {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    box-sizing: border-box;
+}
+
+/* Tarjeta del formulario */
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Encabezado */
+.login-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+/* Icono principal */
+.login-icon {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 50%;
+    color: var(--yellow);
+    font-size: 26px;
+}
+
+.login-heading h1 {
+    font-size: 30px;
+    margin: 0 0 12px;
+    color: var(--text);
+}
+
+.login-heading p {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.login-heading span {
+    color: var(--yellow);
+    font-weight: bold;
+}
+
+/* Formulario */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Agrupación de campos */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+}
+
+/* Contenedor de inputs e iconos */
+.input-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Resplandor al seleccionar un campo */
+.input-container:focus-within {
+    border-color: var(--yellow);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.15);
+}
+
+.input-container i {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.input-container input {
+    width: 100%;
+    min-width: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-size: 14px;
+}
+
+.input-container input::placeholder {
+    color: var(--muted);
+}
+
+/* Mostrar y ocultar contraseña */
+.toggle-password {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.toggle-password:hover i {
+    color: var(--yellow);
+}
+
+/* Botón de inicio de sesión */
+.btn-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    margin-top: 5px;
+    background: var(--yellow);
+    color: #121212;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-submit:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.btn-submit:active {
+    transform: scale(0.98);
+}
+
+/* Enlace hacia el registro */
+.register-link {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+.register-link p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.register-link a {
+    color: var(--yellow);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive para dispositivos móviles */
+@media (max-width: 480px) {
+
+    .login-container {
+        padding: 40px 15px;
+    }
+
+    .login-card {
+        padding: 25px;
+    }
+
+    .login-heading h1 {
+        font-size: 26px;
+    }
+
+}
+
+/* Campo con errores de validación */
+.input-container.input-error {
+    border-color: #ff5252;
+}
+
+/* Resplandor rojo al seleccionar un campo inválido */
+.input-container.input-error:focus-within {
+    box-shadow: 0 0 10px rgba(255, 82, 82, 0.2);
+}
+
+/* Mensajes de error */
+.error-message {
+    color: #ff5252;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+/* Mensaje de validación exitosa */
+.success-message {
+    color: #2eea8a;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    margin: 0;
+    text-shadow: 0 0 3px rgba(46, 234, 138, 0.25);
+}
+/* Requisitos de la contraseña */
+.password-requirements {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.password-requirements p {
+    color: var(--muted);
+    margin: 0 0 10px;
+}
+
+/* Lista de requisitos */
+.password-requirements ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Requisito incumplido */
+.password-requirements li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    transition: color 0.2s;
+}
+
+.password-requirements li i {
+    width: 14px;
+    text-align: center;
+}
+
+/* Requisito cumplido */
+.password-requirements li.valid {
+    color: var(--yellow)
+}
+
+/* Accesibilidad: reducir animaciones */
+@media (prefers-reduced-motion: reduce) {
+
+    .input-container,
+    .btn-submit,
+    .password-requirements li {
+        transition: none;
+    }
+
+    .btn-submit:hover,
+    .btn-submit:active {
+        transform: none;
+    }
+
+}

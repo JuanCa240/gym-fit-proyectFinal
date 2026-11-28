@@ -1,7 +1,7 @@
 <header class="header">
 
     <!-- Logo de TuGym -->
-    <a class="logo" routerLink="/">
+    <a class="logo" routerLink="/" (click)="closeMenu()">
         <img src="images/TuGym_logo_circle.png" alt="Logo de TuGym">
     </a>
 
@@ -26,13 +26,18 @@
         [class.active]="menuOpen"
         aria-label="Navegación principal"
     >
-        <a href="#planes">Planes</a>
-        <a href="#terminos">Términos</a>
-        <a href="#contacto">Contacto</a>
+        <a routerLink="/" fragment="planes" (click)="closeMenu()">Planes</a>
+        <a href="#terminos" (click)="closeMenu()">Términos</a>
+        <a href="#contacto" (click)="closeMenu()">Contacto</a>
     </nav>
 
     <!-- Acceso al login -->
-    <a class="btn-login" [class.active]="menuOpen" href="/login">
+    <a
+        class="btn-login"
+        [class.active]="menuOpen"
+        routerLink="/login"
+        (click)="closeMenu()"
+    >
         Iniciar sesión
     </a>
 
